@@ -5,7 +5,7 @@ import yaml
 url = 'https://api.ciscospark.com/v1/rooms'
 
 token = open("creds.yaml", "r")
-headers = {"Authorization": "Bearer %s" % yaml.load(token) }
+headers = {"Authorization": "Bearer %s" % yaml.load(token)[1] }
 
 response = requests.get(url, headers=headers)
 rooms = json.loads(response.text)['items']
